@@ -1,5 +1,6 @@
 <h2><%= @stores.total_count %> Total Stores</h2>
 
+<% counter = 0 %>
 <% @stores.each do |store| %>
   <div class="store">
     <p class="long_name">Full name: <%= store.long_name %></p>
@@ -10,3 +11,6 @@
     <br>
   </div>
 <% end %>
+
+<%= paginate @stores %>
+<%= page_entries_info @stores %>
