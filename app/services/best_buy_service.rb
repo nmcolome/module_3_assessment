@@ -7,8 +7,16 @@ class BestBuyService
   end
 
   def get_stores_near_me
-    response = conn.get("v1/stores(area(#{zip},25))?format=json&show=longName,city,distance,phone,storeType&apiKey=#{ENV['best_buy_api_key']}")
-    response_json = JSON.parse(response.body, symbolize_names: true)
+    get_url("v1/stores(area(#{zip},25))?format=json&show=longName,city,distance,phone,storeType&apiKey=#{ENV['best_buy_api_key']}")
+  end
+
+  def get_url(url)
+    response = conn.get(url)
+    to_json(response)
+  end
+
+  def to_json(response)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def self.get_stores_near_me(zip)
