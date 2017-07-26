@@ -11,11 +11,10 @@ class Store
   end
 
   def self.get_stores_near_me(zip)
-    response = BestBuyService.get_stores_near_me(zip)
-    stores = response[:stores].map do |store|
+    response = BestBuyService.get_stores_near_me(zip)[:stores]
+    stores = response.map do |store|
       new(store)
     end
-    stores.unshift(response[:total])
   end
 
   private

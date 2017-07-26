@@ -7,7 +7,7 @@ class BestBuyService
   end
 
   def get_stores_near_me
-    get_url("v1/stores(area(#{zip},25))?format=json&show=longName,city,distance,phone,storeType&apiKey=#{ENV['best_buy_api_key']}")
+    get_url("v1/stores(area(#{zip},25))?format=json&show=longName,city,distance,phone,storeType&pageSize=100&apiKey=#{ENV['best_buy_api_key']}")
   end
 
   def get_url(url)
