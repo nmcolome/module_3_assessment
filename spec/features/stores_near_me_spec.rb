@@ -7,6 +7,16 @@ RSpec.describe "/search" do
     click_on "Search"
 
     expect(current_path).to eq("/search")
+    expect(page).to have_content("17 Total Stores")
+    expect(page).to have_selector(".store", count: 17) #later change to ten
+
+    within first(".store") do
+      expect(page).to have_selector(".long_name")
+      expect(page).to have_selector(".city")
+      expect(page).to have_selector(".distance")
+      expect(page).to have_selector(".phone")
+      expect(page).to have_selector(".type")
+    end
   end
 end
 
