@@ -8,7 +8,6 @@ RSpec.describe "displays items" do
 
     within("h1") do
       expect(page).to have_content("Items")
-      # expect(page).to have_content("Items")
     end
   end
 end
