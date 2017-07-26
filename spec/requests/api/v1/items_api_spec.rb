@@ -15,11 +15,12 @@ RSpec.describe "Items API" do
       item = items.first
 
       expect(items.count).to eq(3)
-      expect(item.name).to eq("item1")
-      expect(item.description).to eq("description1")
-      expect(item.image_url).to eq("image_url1")
-      expect(item.created_at).to be_nil
-      expect(item.updated_at).to be_nil
+      expect(item["id"]).to eq(item1.id)
+      expect(item["name"]).to eq("item1")
+      expect(item["description"]).to eq("description1")
+      expect(item["image_url"]).to eq("image_url1")
+      expect(item["created_at"]).to be_nil
+      expect(item["updated_at"]).to be_nil
     end
   end
 end
