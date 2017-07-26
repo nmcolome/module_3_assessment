@@ -8,7 +8,7 @@ RSpec.describe "/search" do
 
     expect(current_path).to eq("/search")
     expect(page).to have_content("17 Total Stores")
-    expect(page).to have_selector(".store", count: 10)
+    expect(page).to have_selector(".store", count: 17)
 
     within first(".store") do
       expect(page).to have_selector(".long_name")
